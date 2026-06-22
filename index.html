@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JK Property Services | Professional Property Maintenance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #B8960C;
+    --gold-light: #D4AC2A;
+    --gold-pale: #F5E6A3;
+    --gold-dark: #8A6E08;
+    --black: #0A0A0A;
+    --charcoal: #1A1A1A;
+    --dark-grey: #2A2A2A;
+    --mid-grey: #444;
+    --light-grey: #f5f5f3;
+    --white: #fff;
+    --text-body: #2c2c2c;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--text-body);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 80px;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(184,150,12,0.25);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .nav-logo-circle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-logo-text span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+
+  .nav-logo-text span:last-child {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black) !important;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.3px !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,150,12,0.12);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,150,12,0.08);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .hero-eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-eyebrow span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 4.5vw, 68px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 16px 0;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .hero-stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .hero-stat-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+  }
+
+  /* HERO RIGHT — visual panel */
+  .hero-visual {
+    position: relative;
+    height: 100vh;
+    background: var(--charcoal);
+    overflow: hidden;
+  }
+
+  .hero-visual-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    gap: 3px;
+  }
+
+  .hero-visual-grid-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .hero-panel {
+    background: var(--dark-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .hero-panel:hover { background: #333; }
+
+  .hero-panel-icon {
+    width: 56px; height: 56px;
+    background: rgba(184,150,12,0.12);
+    border: 1px solid rgba(184,150,12,0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-panel-icon svg {
+    width: 26px; height: 26px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero-panel-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.3px;
+  }
+
+  .hero-panel-accent {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .hero-panel:hover .hero-panel-accent { transform: scaleX(1); }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--gold);
+    padding: 18px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  .trust-item svg {
+    width: 18px; height: 18px;
+    stroke: var(--black);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(0,0,0,0.2);
+  }
+
+  /* ABOUT / INTRO SECTION */
+  .section-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--white);
+  }
+
+  .intro-left {
+    padding: 100px 80px;
+    background: var(--light-grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .intro-right {
+    padding: 100px 80px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3vw, 46px);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .section-body {
+    font-size: 15px;
+    color: var(--mid-grey);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .value-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .value-check {
+    width: 24px; height: 24px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .value-check svg {
+    width: 12px; height: 12px;
+    stroke: var(--black);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .value-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-body);
+    line-height: 1.5;
+  }
+
+  .value-text span {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--mid-grey);
+    margin-top: 2px;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 100px 80px;
+    background: var(--black);
+  }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  .services-header-left .section-title { color: var(--white); margin-bottom: 0; }
+
+  .services-header-left .section-label { color: var(--gold); }
+
+  .services-count {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    user-select: none;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--charcoal);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.25s;
+  }
+
+  .service-card:hover { background: #242424; }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    opacity: 0.7;
+  }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    border: 1px solid rgba(184,150,12,0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: background 0.25s, border-color 0.25s;
+  }
+
+  .service-card:hover .service-icon {
+    background: rgba(184,150,12,0.1);
+    border-color: rgba(184,150,12,0.5);
+  }
+
+  .service-icon svg {
+    width: 24px; height: 24px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  /* PROCESS */
+  .process {
+    padding: 100px 80px;
+    background: var(--white);
+  }
+
+  .process-header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 72px;
+  }
+
+  .process-header .section-label { justify-content: center; }
+  .process-header .section-label::before { display: none; }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: calc(12.5% + 36px);
+    right: calc(12.5% + 36px);
+    height: 1px;
+    background: rgba(184,150,12,0.25);
+    z-index: 0;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-circle {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .step-circle svg {
+    width: 28px; height: 28px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .step-num {
+    position: absolute;
+    top: -6px; right: -6px;
+    width: 22px; height: 22px;
+    background: var(--gold);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--mid-grey);
+    line-height: 1.6;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    padding: 100px 80px;
+    background: var(--light-grey);
+  }
+
+  .testimonials-header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 64px;
+  }
+
+  .testimonials-header .section-label { justify-content: center; }
+  .testimonials-header .section-label::before { display: none; }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    padding: 36px 32px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.06);
+    position: relative;
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .star {
+    width: 14px; height: 14px;
+    fill: var(--gold);
+  }
+
+  .testimonial-quote {
+    font-size: 15px;
+    color: var(--text-body);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 20px;
+  }
+
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black);
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.2;
+  }
+
+  .author-location {
+    font-size: 12px;
+    color: var(--mid-grey);
+    margin-top: 2px;
+  }
+
+  /* WHY US */
+  .why {
+    padding: 100px 80px;
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .why-left .section-title { color: var(--white); }
+
+  .why-left .section-body { color: rgba(255,255,255,0.5); }
+
+  .why-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .why-feature {
+    background: var(--charcoal);
+    padding: 28px 24px;
+    border-radius: 6px;
+    border: 1px solid rgba(184,150,12,0.1);
+    transition: border-color 0.25s;
+  }
+
+  .why-feature:hover { border-color: rgba(184,150,12,0.35); }
+
+  .why-feature-icon {
+    width: 44px; height: 44px;
+    background: rgba(184,150,12,0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .why-feature-icon svg {
+    width: 22px; height: 22px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .why-feature-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .why-feature-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  /* CTA STRIP */
+  .cta-strip {
+    padding: 90px 80px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .cta-strip-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .cta-strip-left p {
+    font-size: 15px;
+    color: rgba(0,0,0,0.6);
+  }
+
+  .cta-strip-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .btn-dark {
+    background: var(--black);
+    color: var(--gold);
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .btn-dark:hover { background: #1a1a1a; transform: translateY(-1px); }
+
+  .btn-outline-dark {
+    color: var(--black);
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid rgba(0,0,0,0.3);
+    transition: border-color 0.2s;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .btn-outline-dark:hover { border-color: var(--black); }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    padding: 72px 80px 40px;
+    border-top: 1px solid rgba(184,150,12,0.15);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+    margin-top: 16px;
+    max-width: 260px;
+  }
+
+  .footer-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-logo-circle {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .footer-logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-col ul li a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--gold); }
+
+  .footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .footer-contact-item svg {
+    width: 15px; height: 15px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .footer-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .footer-badge svg {
+    width: 14px; height: 14px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-circle">JK</div>
+    <div class="nav-logo-text">
+      <span>JK Property Services</span>
+      <span>Trusted · Professional</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#process">How We Work</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Your Local Property Experts</span>
+    </div>
+    <h1>Your Property,<br><em>Perfectly</em><br>Maintained.</h1>
+    <p class="hero-sub">From routine repairs to full renovations — JK Property Services delivers professional, reliable workmanship to homeowners and landlords across the region.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#services" class="btn-ghost">View Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-number">100+</div>
+        <div class="hero-stat-label">Jobs Completed</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">5+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">100%</div>
+        <div class="hero-stat-label">Satisfaction Guarantee</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-grid">
+      <div class="hero-visual-grid-row">
+        <div class="hero-panel">
+          <div class="hero-panel-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 22V12h6v10"/></svg>
+          </div>
+          <div class="hero-panel-label">General Maintenance</div>
+          <div class="hero-panel-accent"></div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-panel-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="hero-panel-label">Plumbing & Heating</div>
+          <div class="hero-panel-accent"></div>
+        </div>
+      </div>
+      <div class="hero-visual-grid-row">
+        <div class="hero-panel">
+          <div class="hero-panel-icon">
+            <svg viewBox="0 0 24 24"><circle cx="13" cy="6" r="3"/><path d="M4 17v-1a8 8 0 0110.42-7.63M4 21h16M8 21v-4"/><rect x="14" y="13" width="7" height="8" rx="1"/></svg>
+          </div>
+          <div class="hero-panel-label">Electrical Work</div>
+          <div class="hero-panel-accent"></div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-panel-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V8l8-6 8 6v12"/><rect x="9" y="12" width="6" height="8"/><path d="M10 12V9a2 2 0 014 0v3"/></svg>
+          </div>
+          <div class="hero-panel-label">Renovation & Fit-out</div>
+          <div class="hero-panel-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Fully Insured & Certified
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Fast Response Times
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    5-Star Rated Service
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    No Hidden Costs — Ever
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    Local, Family-Run Business
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section-intro" id="about">
+  <div class="intro-left">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">Built on Trust,<br>Driven by Quality.</h2>
+    <p class="section-body">JK Property Services is a family-run property maintenance company with over a decade of hands-on experience. We believe every home deserves expert care — and every client deserves honest, transparent service.</p>
+    <p class="section-body">Whether you're a homeowner needing a quick fix or a landlord managing a portfolio of properties, we bring the same level of professionalism and care to every single job.</p>
+  </div>
+  <div class="intro-right">
+    <ul class="value-list">
+      <li class="value-item">
+        <div class="value-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="value-text">
+          Transparent Pricing
+          <span>Fixed quotes before work begins — no surprise bills at the end.</span>
+        </div>
+      </li>
+      <li class="value-item">
+        <div class="value-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="value-text">
+          Skilled, Vetted Tradespeople
+          <span>Every team member is qualified, insured, and background-checked.</span>
+        </div>
+      </li>
+      <li class="value-item">
+        <div class="value-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="value-text">
+          On Time, Every Time
+          <span>We respect your schedule and always show up when we say we will.</span>
+        </div>
+      </li>
+      <li class="value-item">
+        <div class="value-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="value-text">
+          12-Month Workmanship Guarantee
+          <span>If something isn't right, we come back and fix it — free of charge.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="services-header-left">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Services</h2>
+    </div>
+    <div class="services-count">06</div>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 22V12h6v10"/></svg>
+      </div>
+      <div class="service-title">General Property Maintenance</div>
+      <div class="service-desc">Ongoing upkeep, repairs, and preventative maintenance to keep your property in peak condition all year round.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div class="service-title">Plumbing & Heating</div>
+      <div class="service-desc">Boiler servicing, leak repairs, bathroom installations, and full central heating system maintenance.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div class="service-title">Electrical Works</div>
+      <div class="service-desc">Safe, certified electrical repairs, rewiring, consumer unit upgrades, and new socket or lighting installations.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">04</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="service-title">Tiling & Flooring</div>
+      <div class="service-desc">Professional floor and wall tiling, hardwood, laminate, and vinyl flooring supply and fit throughout your home.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">05</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V8l8-6 8 6v12"/><rect x="9" y="12" width="6" height="8"/></svg>
+      </div>
+      <div class="service-title">Extensions & Renovations</div>
+      <div class="service-desc">Full property renovations, kitchen and bathroom refits, and home extension projects managed end to end.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">06</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="service-title">Painting & Decorating</div>
+      <div class="service-desc">Interior and exterior painting, wallpapering, and decorating to a flawless, lasting finish every time.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Simple, Straightforward from Start to Finish</h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-circle">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.22 1 2 2 0 012.21 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        <div class="step-num">1</div>
+      </div>
+      <div class="step-title">Get in Touch</div>
+      <div class="step-desc">Call, email or use our online form to tell us about your property needs.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="step-num">2</div>
+      </div>
+      <div class="step-title">Free Survey & Quote</div>
+      <div class="step-desc">We visit, assess the job, and provide a clear written quote with no obligation.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div class="step-num">3</div>
+      </div>
+      <div class="step-title">Work Scheduled</div>
+      <div class="step-desc">We agree a start date that suits you and confirm everything in writing.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="step-num">4</div>
+      </div>
+      <div class="step-title">Job Complete</div>
+      <div class="step-desc">Work is carried out to the highest standard, with a full tidy-up on completion.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="testimonials-header">
+    <div class="section-label">Client Reviews</div>
+    <h2 class="section-title">What Our Customers Say</h2>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testimonial-quote">"Absolutely fantastic from start to finish. The team were professional, tidy, and the quality of work was outstanding. Our bathroom looks incredible — couldn't be happier."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">SR</div>
+        <div>
+          <div class="author-name">Sarah R.</div>
+          <div class="author-location">Homeowner, Nottingham</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testimonial-quote">"As a landlord with multiple properties, I need tradespeople I can actually trust. JK Property Services are now my go-to for everything. Reliable, honest pricing and great work every time."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">MT</div>
+        <div>
+          <div class="author-name">Mark T.</div>
+          <div class="author-location">Landlord, Derby</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testimonial-quote">"Called JK on a Friday morning about a leak, they were there by the afternoon. Fixed the problem cleanly and at a very fair price. You don't find service like that often. Highly recommend."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">JP</div>
+        <div>
+          <div class="author-name">James P.</div>
+          <div class="author-location">Homeowner, Leicester</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY JK -->
+<section class="why">
+  <div class="why-left">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">The Standard You Deserve.</h2>
+    <p class="section-body">We don't cut corners. We don't disappear mid-job. We treat your home with the same respect we'd give our own. That's the JK promise — backed by every review, every referral, and every job we've completed.</p>
+    <a href="#contact" class="btn-primary" style="margin-top:32px; display:inline-block;">Book a Free Survey</a>
+  </div>
+  <div class="why-features">
+    <div class="why-feature">
+      <div class="why-feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="why-feature-title">Fully Insured</div>
+      <div class="why-feature-text">Public liability and employer's insurance as standard on every single job.</div>
+    </div>
+    <div class="why-feature">
+      <div class="why-feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="why-feature-title">Guaranteed Work</div>
+      <div class="why-feature-text">12-month guarantee on all workmanship — no arguments, no excuses.</div>
+    </div>
+    <div class="why-feature">
+      <div class="why-feature-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="why-feature-title">Prompt Response</div>
+      <div class="why-feature-text">We respond to all enquiries within 2 hours during working hours.</div>
+    </div>
+    <div class="why-feature">
+      <div class="why-feature-icon">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <div class="why-feature-title">Fair, Fixed Pricing</div>
+      <div class="why-feature-text">The price we quote is the price you pay. Always.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip" id="contact">
+  <div class="cta-strip-left">
+    <h2>Ready to Get Started?</h2>
+    <p>Get your free, no-obligation quote today. Most surveys booked within 48 hours.</p>
+  </div>
+  <div class="cta-strip-right">
+    <a href="tel:01234567890" class="btn-dark">Call Us Now</a>
+    <a href="mailto:info@jkpropertyservices.co.uk" class="btn-outline-dark">Email Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <div class="footer-logo-circle">JK</div>
+        <div class="footer-logo-name">JK Property Services</div>
+      </div>
+      <p>Professional property maintenance you can rely on. Serving homeowners and landlords across the East Midlands for over a decade.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">General Maintenance</a></li>
+        <li><a href="#">Plumbing & Heating</a></li>
+        <li><a href="#">Electrical Works</a></li>
+        <li><a href="#">Tiling & Flooring</a></li>
+        <li><a href="#">Renovations</a></li>
+        <li><a href="#">Painting & Decorating</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">How We Work</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.22 1 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+        01234 567 890
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@jkpropertyservices.co.uk
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        East Midlands, UK
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 JK Property Services. All rights reserved.</p>
+    <div class="footer-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Fully Insured & Certified
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

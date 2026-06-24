@@ -42,6 +42,48 @@
   .nav-cta { background: var(--gold); color: var(--black) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; font-size: 13px !important; }
   .nav-cta:hover { background: var(--gold-light) !important; }
 
+  /* Dropdown Navigation */
+.nav-links .dropdown {
+  position: relative;
+}
+
+.nav-links .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 250px;
+  background: #fff;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+
+  display: none;
+
+  z-index: 9999;
+}
+
+.nav-links .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.nav-links .dropdown-menu li {
+  width: 100%;
+}
+
+.nav-links .dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #222;
+  white-space: nowrap;
+}
+
+.nav-links .dropdown-menu a:hover {
+  background: #f5f5f5;
+}
+
   /* PAGE HERO */
   .page-hero {
     padding-top: 80px; background: var(--black);
@@ -254,7 +296,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="jk-property-services.html" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <div class="nav-logo-circle">JK</div>
     <div class="nav-logo-text">
       <span>JK Property Services</span>
@@ -269,7 +311,7 @@
     <ul class="dropdown-menu">
       <li><a href="general-maintenance.html">General Maintenance</a></li>
       <li><a href="plumbing-electrical.html">Plumbing & Electrical</a></li>
-      <li><a href="gardening.html">Gardening & Landscaping</a></li>
+      <li><a href="gardening.html">Gardening</a></li>
       <li><a href="refurbishments.html">Property Refurbishments</a></li>
     </ul>
 

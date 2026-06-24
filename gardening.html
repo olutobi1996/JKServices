@@ -103,6 +103,48 @@
 
   .nav-cta:hover { background: var(--gold-light) !important; }
 
+  /* Dropdown Navigation */
+.nav-links .dropdown {
+  position: relative;
+}
+
+.nav-links .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 250px;
+  background: #fff;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+
+  display: none;
+
+  z-index: 9999;
+}
+
+.nav-links .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.nav-links .dropdown-menu li {
+  width: 100%;
+}
+
+.nav-links .dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #222;
+  white-space: nowrap;
+}
+
+.nav-links .dropdown-menu a:hover {
+  background: #f5f5f5;
+}
+
   /* ─── PAGE HERO / BANNER ─── */
   .page-hero {
     padding-top: 80px;
@@ -807,7 +849,7 @@
 
 <!-- ═══ NAV ═══ -->
 <nav>
-  <a href="jk-property-services.html" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <div class="nav-logo-circle">JK</div>
     <div class="nav-logo-text">
       <span>JK Property Services</span>
@@ -822,7 +864,7 @@
     <ul class="dropdown-menu">
       <li><a href="general-maintenance.html">General Maintenance</a></li>
       <li><a href="plumbing-electrical.html">Plumbing & Electrical</a></li>
-      <li><a href="gardening.html">Gardening & Landscaping</a></li>
+      <li><a href="gardening.html">Gardening</a></li>
       <li><a href="refurbishments.html">Property Refurbishments</a></li>
     </ul>
 
@@ -845,13 +887,13 @@
       <span class="breadcrumb-sep">›</span>
       <a href="jk-property-services.html#services">Services</a>
       <span class="breadcrumb-sep">›</span>
-      <span>Gardening & Landscaping</span>
+      <span>Gardening</span>
     </div>
     <div class="page-hero-eyebrow">
       <div class="eyebrow-line"></div>
       <span>Our Services</span>
     </div>
-    <h1>Gardening &<br><em>Landscaping Services</em></h1>
+    <h1>Gardening<br><em>Services</em></h1>
     <p class="page-hero-sub">From routine garden maintenance to complete outdoor transformations, we help homeowners and landlords create attractive, functional outdoor spaces that can be enjoyed all year round.</p>
   </div>
   <div class="page-hero-bar"></div>

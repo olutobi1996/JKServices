@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | JK Property Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #B8960C;
+    --gold-light: #D4AC2A;
+    --black: #0A0A0A;
+    --charcoal: #1A1A1A;
+    --dark-grey: #2A2A2A;
+    --mid-grey: #444;
+    --light-grey: #f5f5f3;
+    --white: #fff;
+    --text-body: #2c2c2c;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text-body); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; height: 80px;
+    background: rgba(10,10,10,0.97); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(184,150,12,0.25);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--black); flex-shrink: 0; }
+  .nav-logo-text { display: flex; flex-direction: column; }
+  .nav-logo-text span:first-child { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--gold); line-height: 1.1; }
+  .nav-logo-text span:last-child { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--gold); color: var(--black) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; font-size: 13px !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  /* PAGE HERO */
+  .page-hero {
+    padding-top: 80px; background: var(--black);
+    min-height: 440px; display: flex; align-items: flex-end;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before { content: ''; position: absolute; top: -160px; right: -160px; width: 600px; height: 600px; border-radius: 50%; border: 1px solid rgba(184,150,12,0.1); pointer-events: none; }
+  .page-hero::after { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; border-radius: 50%; border: 1px solid rgba(184,150,12,0.07); pointer-events: none; }
+  .page-hero-inner { position: relative; z-index: 2; padding: 80px 80px 72px; max-width: 760px; }
+  .breadcrumb { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+  .breadcrumb a { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb-sep { color: rgba(255,255,255,0.2); font-size: 12px; }
+  .breadcrumb span { font-size: 12px; color: var(--gold); font-weight: 500; }
+  .page-hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+  .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+  .page-hero-eyebrow span { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 4vw, 60px); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 22px; }
+  .page-hero h1 em { font-style: normal; color: var(--gold); }
+  .page-hero-sub { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 560px; }
+  .page-hero-bar { width: 100%; height: 4px; background: linear-gradient(90deg, var(--gold) 0%, transparent 70%); }
+
+  /* TRUST BAR */
+  .trust-bar { background: var(--gold); padding: 18px 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .trust-item { display: flex; align-items: center; gap: 10px; color: var(--black); font-size: 13px; font-weight: 600; }
+  .trust-item svg { width: 18px; height: 18px; stroke: var(--black); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .trust-divider { width: 1px; height: 20px; background: rgba(0,0,0,0.2); }
+
+  /* SHARED */
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); display: block; }
+  .section-label.center { justify-content: center; }
+  .section-label.center::before { display: none; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 20px; }
+  .section-body { font-size: 15px; color: var(--mid-grey); line-height: 1.8; margin-bottom: 16px; }
+
+  /* OUR STORY */
+  .our-story {
+    display: grid; grid-template-columns: 1fr 1fr; background: var(--white);
+  }
+  .story-left {
+    padding: 90px 80px; background: var(--light-grey);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .story-right {
+    padding: 90px 80px; background: var(--white);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .story-right .section-title { color: var(--black); }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 32px 0;
+    background: rgba(184,150,12,0.04);
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 400;
+    color: var(--black); line-height: 1.6; font-style: italic;
+  }
+  .pull-quote cite { display: block; font-size: 12px; font-weight: 600; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-top: 10px; font-style: normal; }
+
+  /* Photo placeholder grid — story left */
+  .story-photo-grid {
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px;
+    gap: 10px; margin-top: 0;
+  }
+  .story-photo {
+    border-radius: 4px; overflow: hidden;
+    background: var(--dark-grey); position: relative;
+  }
+  .story-photo.tall { grid-row: 1 / 3; }
+  .story-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 12px;
+  }
+  .photo-placeholder svg { width: 32px; height: 32px; stroke: rgba(184,150,12,0.35); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .photo-placeholder span { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.5px; }
+
+  /* STATS ROW */
+  .stats-row {
+    background: var(--black); padding: 60px 80px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(184,150,12,0.15);
+    border-bottom: 1px solid rgba(184,150,12,0.15);
+  }
+  .stat-item {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 0 20px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px; font-weight: 700; color: var(--gold);
+    line-height: 1; margin-bottom: 10px;
+  }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 400; letter-spacing: 0.5px; }
+
+  /* OUR VALUES */
+  .values { padding: 90px 80px; background: var(--white); }
+  .values-header { text-align: center; max-width: 580px; margin: 0 auto 64px; }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .value-card {
+    background: var(--light-grey); padding: 48px 36px;
+    position: relative; overflow: hidden;
+    transition: background 0.25s;
+  }
+  .value-card:hover { background: #ede9df; }
+  .value-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .value-card:hover::after { transform: scaleX(1); }
+  .value-number { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; color: rgba(184,150,12,0.12); line-height: 1; margin-bottom: 24px; }
+  .value-icon { width: 52px; height: 52px; background: rgba(184,150,12,0.08); border: 1px solid rgba(184,150,12,0.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .value-icon svg { width: 24px; height: 24px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .value-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 12px; }
+  .value-text { font-size: 14px; color: var(--mid-grey); line-height: 1.75; }
+
+  /* MEET THE TEAM */
+  .team { padding: 90px 80px; background: var(--black); }
+  .team-header { max-width: 560px; margin-bottom: 60px; }
+  .team-header .section-title { color: var(--white); }
+  .team-header .section-body { color: rgba(255,255,255,0.45); }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .team-card { background: var(--charcoal); overflow: hidden; transition: background 0.25s; }
+  .team-card:hover { background: #242424; }
+  .team-photo {
+    height: 280px; background: var(--dark-grey);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.45s; }
+  .team-card:hover .team-photo img { transform: scale(1.04); }
+  .team-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  }
+  .team-photo-placeholder svg { width: 48px; height: 48px; stroke: rgba(184,150,12,0.3); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .team-photo-placeholder span { font-size: 11px; color: rgba(255,255,255,0.2); }
+  .team-info { padding: 28px 28px 32px; }
+  .team-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .team-role { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .team-bio { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+
+  /* ACCREDITATIONS */
+  .accreditations { padding: 80px 80px; background: var(--light-grey); }
+  .accred-header { text-align: center; max-width: 520px; margin: 0 auto 52px; }
+  .accred-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .accred-card {
+    background: var(--white); border-radius: 6px;
+    padding: 36px 24px; text-align: center;
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .accred-card:hover { border-color: rgba(184,150,12,0.3); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .accred-icon { width: 56px; height: 56px; background: rgba(184,150,12,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .accred-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .accred-name { font-size: 14px; font-weight: 700; color: var(--black); }
+  .accred-desc { font-size: 12px; color: var(--mid-grey); line-height: 1.5; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 90px 80px; background: var(--white); }
+  .testimonials-header { text-align: center; max-width: 560px; margin: 0 auto 56px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testimonial-card { background: var(--light-grey); padding: 36px 32px; border-radius: 6px; border: 1px solid transparent; transition: border-color 0.25s; }
+  .testimonial-card:hover { border-color: rgba(184,150,12,0.25); }
+  .testimonial-stars { display: flex; gap: 4px; margin-bottom: 20px; }
+  .star { width: 14px; height: 14px; fill: var(--gold); }
+  .testimonial-quote { font-size: 15px; color: var(--text-body); line-height: 1.75; margin-bottom: 28px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 20px; }
+  .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--black); flex-shrink: 0; }
+  .author-name { font-size: 14px; font-weight: 600; color: var(--black); line-height: 1.2; }
+  .author-location { font-size: 12px; color: var(--mid-grey); margin-top: 2px; }
+
+  /* CTA STRIP */
+  .cta-strip { padding: 90px 80px; background: var(--gold); display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+  .cta-strip-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 12px; }
+  .cta-strip-left p { font-size: 15px; color: rgba(0,0,0,0.6); }
+  .cta-strip-right { display: flex; gap: 16px; align-items: center; flex-shrink: 0; }
+  .btn-dark { background: var(--black); color: var(--gold); text-decoration: none; padding: 16px 36px; border-radius: 4px; font-size: 14px; font-weight: 600; transition: background 0.2s, transform 0.15s; display: inline-block; white-space: nowrap; }
+  .btn-dark:hover { background: #1a1a1a; transform: translateY(-1px); }
+  .btn-outline-dark { color: var(--black); text-decoration: none; padding: 16px 36px; border-radius: 4px; font-size: 14px; font-weight: 600; border: 2px solid rgba(0,0,0,0.3); transition: border-color 0.2s; display: inline-block; white-space: nowrap; }
+  .btn-outline-dark:hover { border-color: var(--black); }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); padding: 72px 80px 40px; border-top: 1px solid rgba(184,150,12,0.15); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-logo-row { display: flex; align-items: center; gap: 12px; }
+  .footer-logo-circle { width: 40px; height: 40px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--black); }
+  .footer-logo-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--gold); }
+  .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 16px; max-width: 260px; }
+  .footer-col h4 { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 12px; line-height: 1.4; }
+  .footer-contact-item svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 2px; }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); }
+  .footer-badge { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--gold); font-weight: 500; }
+  .footer-badge svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="jk-property-services.html" class="nav-logo">
+    <div class="nav-logo-circle">JK</div>
+    <div class="nav-logo-text">
+      <span>JK Property Services</span>
+      <span>Trusted · Professional</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+  
+  <li class="dropdown">
+    <a href="#services">Services</a>
+
+    <ul class="dropdown-menu">
+      <li><a href="general-maintenance.html">General Maintenance</a></li>
+      <li><a href="plumbing-electrical.html">Plumbing & Electrical</a></li>
+      <li><a href="gardening.html">Gardening & Landscaping</a></li>
+      <li><a href="refurbishments.html">Property Refurbishments</a></li>
+    </ul>
+
+  </li>
+
+  <li><a href="about-us.html">About Us</a></li>
+
+  <li><a href="contact.html">Contact</a></li>
+
+  <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+
+</ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="jk-property-services.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>About Us</span>
+    </div>
+    <div class="page-hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span>Our Story</span>
+    </div>
+    <h1>A Business<br>Built on <em>Integrity</em></h1>
+    <p class="page-hero-sub">JK Property Services was founded on a simple belief — that homeowners and landlords deserve honest, skilled tradespeople who take real pride in their work. That belief hasn't changed.</p>
+  </div>
+  <div class="page-hero-bar"></div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    Honesty & Integrity
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    10+ Years Experience
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Fully Insured & Certified
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    500+ Happy Customers
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    12-Month Guarantee
+  </div>
+</div>
+
+<!-- OUR STORY -->
+<section class="our-story">
+  <div class="story-left">
+    <!-- Photo grid — replace placeholders with your real images -->
+    <div class="story-photo-grid">
+      <div class="story-photo tall">
+        <!-- <img src="team-photo.jpg" alt="JK team"> -->
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Add your photo</span>
+        </div>
+      </div>
+      <div class="story-photo">
+        <!-- <img src="job-photo.jpg" alt="Work in progress"> -->
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Add your photo</span>
+        </div>
+      </div>
+      <div class="story-photo">
+        <!-- <img src="completed-job.jpg" alt="Completed work"> -->
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Add your photo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-right">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">The JK Story</h2>
+    <p class="section-body">JK Property Services started over a decade ago with a single van, a toolbox, and a commitment to doing things properly. What began as a local handyman service grew — through word of mouth alone — into one of the most trusted property maintenance companies in the East Midlands.</p>
+    <p class="section-body">We're not a national franchise or a faceless contractor. We're a family-run team who live and work in the same communities as our clients. Every job we take on is personal to us, because our reputation depends on it.</p>
+
+    <div class="pull-quote">
+      <p>"We built this business on referrals. When someone recommends us to their neighbour, that means everything. It means we did something right."</p>
+      <cite>— The JK Team</cite>
+    </div>
+
+    <p class="section-body">Today, we carry out hundreds of jobs every year — from small repairs to full property renovations — and we bring the same level of care and professionalism to every single one.</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-item">
+    <div class="stat-number">10+</div>
+    <div class="stat-label">Years in Business</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">500+</div>
+    <div class="stat-label">Jobs Completed</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Satisfaction Guarantee</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">5★</div>
+    <div class="stat-label">Average Review Rating</div>
+  </div>
+</div>
+
+<!-- OUR VALUES -->
+<section class="values">
+  <div class="values-header">
+    <div class="section-label center">What Drives Us</div>
+    <h2 class="section-title" style="text-align:center;">The Values Behind<br>Everything We Do</h2>
+  </div>
+  <div class="values-grid">
+
+    <div class="value-card">
+      <div class="value-number">01</div>
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="value-title">Honesty Above All</div>
+      <div class="value-text">We tell you what a job needs — not what sounds impressive. If a repair is straightforward, we say so. If something needs more work, we explain why clearly before we proceed.</div>
+    </div>
+
+    <div class="value-card">
+      <div class="value-number">02</div>
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="value-title">Quality Without Compromise</div>
+      <div class="value-text">We use quality materials and refuse to cut corners. Our 12-month workmanship guarantee backs that up — if something isn't right, we come back and fix it, no arguments.</div>
+    </div>
+
+    <div class="value-card">
+      <div class="value-number">03</div>
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="value-title">Respect for Your Time</div>
+      <div class="value-text">We show up when we say we will, every time. We understand that your time is valuable and we never leave you waiting with vague arrival windows or last-minute cancellations.</div>
+    </div>
+
+    <div class="value-card">
+      <div class="value-number">04</div>
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <div class="value-title">Transparent Pricing</div>
+      <div class="value-text">The price we quote is the price you pay. No surprises, no add-ons, no ambiguous invoices. We believe trust is built on clarity — and that starts from the very first conversation.</div>
+    </div>
+
+    <div class="value-card">
+      <div class="value-number">05</div>
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="value-title">Community First</div>
+      <div class="value-text">We're local. We live here, work here, and care about the communities we serve. When you hire JK, you're supporting a local business that genuinely gives back to its area.</div>
+    </div>
+
+    <div class="value-card">
+      <div class="value-number">06</div>
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="value-title">Treating Your Home with Care</div>
+      <div class="value-text">We treat every property as if it were our own. That means protecting floors, tidying up completely, and leaving your home in better shape than we found it — every single time.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MEET THE TEAM -->
+<section class="team">
+  <div class="team-header">
+    <div class="section-label">The People Behind JK</div>
+    <h2 class="section-title" style="color:var(--white);">Meet the Team</h2>
+    <p class="section-body" style="color:rgba(255,255,255,0.45);">Every person on the JK team is vetted, qualified, and shares the same commitment to quality work and honest service.</p>
+  </div>
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- <img src="team-member-1.jpg" alt="Team member"> -->
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Add your photo</span>
+        </div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Your Name Here</div>
+        <div class="team-role">Founder & Lead Tradesperson</div>
+        <div class="team-bio">Over 10 years of hands-on experience across all aspects of property maintenance. Founded JK on the belief that quality work and honest pricing should be the standard, not the exception.</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- <img src="team-member-2.jpg" alt="Team member"> -->
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Add your photo</span>
+        </div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Team Member Name</div>
+        <div class="team-role">Plumbing & Heating Specialist</div>
+        <div class="team-bio">Qualified plumber and heating engineer with a meticulous approach to every installation and repair. Trusted by homeowners and landlords alike for reliable, lasting results.</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- <img src="team-member-3.jpg" alt="Team member"> -->
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Add your photo</span>
+        </div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Team Member Name</div>
+        <div class="team-role">General Maintenance & Renovations</div>
+        <div class="team-bio">The kind of tradesperson who takes pride in the small details as much as the big ones. Specialises in renovations, fit-outs, and making sure every job is finished to perfection.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACCREDITATIONS -->
+<section class="accreditations">
+  <div class="accred-header">
+    <div class="section-label center">Our Credentials</div>
+    <h2 class="section-title" style="text-align:center; margin-bottom:12px;">Qualified, Certified &amp; Insured</h2>
+    <p style="font-size:14px; color:var(--mid-grey); text-align:center; line-height:1.7;">Every accreditation we hold reflects our commitment to professional standards and your safety.</p>
+  </div>
+  <div class="accred-grid">
+    <div class="accred-card">
+      <div class="accred-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="accred-name">Public Liability Insurance</div>
+      <div class="accred-desc">Full cover on every job for total peace of mind</div>
+    </div>
+    <div class="accred-card">
+      <div class="accred-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div class="accred-name">Electrical Certification</div>
+      <div class="accred-desc">Certified electrical work carried out to Part P regulations</div>
+    </div>
+    <div class="accred-card">
+      <div class="accred-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div class="accred-name">Gas Safe Registered</div>
+      <div class="accred-desc">Registered for all gas and heating work</div>
+    </div>
+    <div class="accred-card">
+      <div class="accred-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+      </div>
+      <div class="accred-name">Which? Trusted Trader</div>
+      <div class="accred-desc">Independently reviewed and endorsed</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <div class="section-label center">What Our Clients Say</div>
+    <h2 class="section-title" style="text-align:center;">Don't Just Take<br>Our Word for It</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testimonial-quote">"Absolutely fantastic from start to finish. The team were professional, tidy, and the quality of work was outstanding. Our bathroom looks incredible — couldn't be happier."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">SR</div>
+        <div>
+          <div class="author-name">Sarah R.</div>
+          <div class="author-location">Homeowner, Nottingham</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testimonial-quote">"As a landlord with multiple properties, I need tradespeople I can actually trust. JK Property Services are now my go-to for everything. Reliable, honest pricing and great work every time."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">MT</div>
+        <div>
+          <div class="author-name">Mark T.</div>
+          <div class="author-location">Landlord, Derby</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testimonial-quote">"Called JK on a Friday morning about a leak, they were there by the afternoon. Fixed the problem cleanly and at a very fair price. You don't find service like that often."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">JP</div>
+        <div>
+          <div class="author-name">James P.</div>
+          <div class="author-location">Homeowner, Leicester</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="cta-strip-left">
+    <h2>Ready to Work<br>with the JK Team?</h2>
+    <p>Get your free, no-obligation quote today. We'd love to help with your property.</p>
+  </div>
+  <div class="cta-strip-right">
+    <a href="jk-contact.html" class="btn-dark">Get a Free Quote</a>
+    <a href="tel:01234567890" class="btn-outline-dark">Call Us Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <div class="footer-logo-circle">JK</div>
+        <div class="footer-logo-name">JK Property Services</div>
+      </div>
+      <p>Professional property maintenance you can rely on. Serving homeowners and landlords across the East Midlands for over a decade.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="jk-general-maintenance.html">General Maintenance</a></li>
+        <li><a href="#">Plumbing &amp; Heating</a></li>
+        <li><a href="#">Electrical Works</a></li>
+        <li><a href="#">Tiling &amp; Flooring</a></li>
+        <li><a href="#">Renovations</a></li>
+        <li><a href="#">Painting &amp; Decorating</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="jk-property-services.html">Home</a></li>
+        <li><a href="jk-about.html">About Us</a></li>
+        <li><a href="jk-property-services.html#process">How We Work</a></li>
+        <li><a href="jk-property-services.html#reviews">Reviews</a></li>
+        <li><a href="jk-contact.html">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.22 1 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+        01234 567 890
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@jkpropertyservices.co.uk
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        East Midlands, UK
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 JK Property Services. All rights reserved.</p>
+    <div class="footer-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Fully Insured & Certified
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

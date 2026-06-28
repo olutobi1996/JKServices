@@ -1027,6 +1027,200 @@
   .stat-number { font-size: 36px; }
 }
 .nav-links a { display: block; padding: 16px 0; font-size: 15px; color: #B8960C !important; background: none !important; border-radius: 0 !important; }
+/* ─── GALLERY ─── */
+.gallery {
+  padding: 90px 80px;
+  background: var(--white);
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0;
+  background: var(--black);
+  padding: 4px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.gallery-item {
+  flex-basis: calc(33.333% - 4px);
+  margin-bottom: 4px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  filter: brightness(0.92);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+/* Gold label slides up on hover */
+.gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 100%);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 28px 14px 12px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-label {
+  transform: translateY(0);
+}
+
+/* Gold corner accent on hover */
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.3s ease;
+}
+
+.gallery-item:hover::after {
+  height: 100%;
+}
+
+/* ─── LIGHTBOX ─── */
+.jk-lightbox {
+  position: fixed;
+  display: none;
+  background: rgba(0,0,0,0.93);
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  z-index: 9999;
+  overflow: auto;
+}
+
+.jk-lightbox-content {
+  position: relative;
+  width: 75%;
+  max-width: 1000px;
+  margin: 4% auto;
+}
+
+.jk-lightbox-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
+
+.jk-lightbox-caption {
+  text-align: center;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+.jk-lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 28px;
+  color: rgba(255,255,255,0.6);
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+  z-index: 10000;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+.jk-lightbox-close:hover {
+  color: var(--gold);
+}
+
+.jk-lightbox-prev,
+.jk-lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(184,150,12,0.3);
+  color: rgba(255,255,255,0.7);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.jk-lightbox-prev { left: -64px; }
+.jk-lightbox-next { right: -64px; }
+
+.jk-lightbox-prev:hover,
+.jk-lightbox-next:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+}
+
+/* ─── GALLERY RESPONSIVE ─── */
+@media (max-width: 1023px) {
+  .gallery { padding: 70px 40px; }
+  .gallery-item { flex-basis: calc(33.333% - 4px); }
+  .jk-lightbox-content { width: 85%; }
+  .jk-lightbox-prev { left: -48px; }
+  .jk-lightbox-next { right: -48px; }
+}
+
+@media (max-width: 767px) {
+  .gallery { padding: 56px 20px; }
+  .gallery-item { flex-basis: calc(50% - 2px); }
+  .gallery-header { flex-direction: column; gap: 12px; }
+  .jk-lightbox-content { width: 90%; margin: 12% auto; }
+  .jk-lightbox-prev { left: -4px; }
+  .jk-lightbox-next { right: -4px; }
+}
+
+@media (max-width: 480px) {
+  .gallery-item { flex-basis: 100%; margin-bottom: 2px; }
+  .jk-lightbox-content { width: 95%; margin: 20% auto; }
+}
 </style>
 </head>
 <body>
@@ -1128,54 +1322,36 @@
     </div>
     <p style="font-size:14px; color:var(--mid-grey); max-width:320px; line-height:1.7;">Every job we complete is finished to the same exacting standard — tidy, professional, and built to last.</p>
   </div>
- 
-  <!-- PHOTO GRID -->
-  <!-- Replace the .photo-placeholder divs with: <img src="your-photo.jpg" alt="Description"> -->
-  <div class="gallery-grid">
- 
-    <!-- Featured large tile -->
-    <div class="gallery-item featured">
-      <div class="gallery-item-inner">
-        <!-- YOUR PHOTO HERE: <img src="photo1.jpg" alt="General maintenance work"> -->
-        <img src="IMG_4121.JPG" alt="Garden lawn maintenance" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="gallery-overlay">
-        <div class="gallery-overlay-label">Lawn Maintenance & Turfing</div>
-      </div>
+
+  <div class="gallery-container">
+    <div class="gallery-item" data-index="1">
+      <img src="IMG_4122.JPG" alt="Lawn Maintenance">
+      <div class="gallery-label">Lawn Maintenance &amp; Turfing</div>
     </div>
- 
-    <!-- Tall right tile -->
-    <div class="gallery-item tall">
-      <div class="gallery-item-inner">
-        <!-- YOUR PHOTO HERE: <img src="photo2.jpg" alt="Property maintenance"> -->
-        <img src="IMG_4119.JPG" alt="Garden tidy and upkeep" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="gallery-overlay">
-        <div class="gallery-overlay-label">Garden Clearance & Tidy</div>
-      </div>
+    <div class="gallery-item" data-index="2">
+      <img src="IMG_4128.JPG" alt="Garden Clearance">
+      <div class="gallery-label">Patio Clean &amp; Tidy</div>
     </div>
- 
-    <!-- Bottom row tiles -->
-    <div class="gallery-item">
-      <div class="gallery-item-inner">
-        <!-- YOUR PHOTO HERE: <img src="photo3.jpg" alt="Maintenance work"> -->
-        <img src="IMG_4128.JPG" alt="Patio before pressure washing" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="gallery-overlay">Patio</div>
+    <div class="gallery-item" data-index="3">
+      <img src="PHOTO-2026-05-21-17-09-10.jpg" alt="Patio Before">
+      <div class="gallery-label">Garden Tidy</div>
     </div>
- 
-    <div class="gallery-item">
-      <div class="gallery-item-inner">
-        <!-- YOUR PHOTO HERE: <img src="photo4.jpg" alt="Maintenance work"> -->
-        <img src="IMG_4119.JPG" alt="Patio after cleaning and restoration" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="gallery-overlay">
-        <div class="gallery-overlay-label">Patio</div>
-      </div>
+    <div class="gallery-item" data-index="4">
+      <img src="PHOTO-2026-05-21-17-09-11.jpg" alt="Patio After">
+      <div class="gallery-label">Garden Maintenance</div>
     </div>
- 
+     <div class="gallery-item" data-index="4">
+      <img src="PHOTO-2026-05-21-17-09-11_1.jpg" alt="Patio After">
+      <div class="gallery-label">Headge Trim  &amp; Tidy</div>
+    </div>
+     <div class="gallery-item" data-index="4">
+      <img src="PHOTO-2026-05-21-17-09-11_2.jpg" alt="Patio After">
+      <div class="gallery-label">Garden Tidy</div>
+    </div>
   </div>
 </section>
+
+
  
 <section class="what-is">
   <div class="what-is-left">
@@ -1596,6 +1772,93 @@
       });
     });
   })();
+</script>
+<script>
+(function() {
+  // Build lightbox elements
+  var lb = document.createElement('div');
+  lb.className = 'jk-lightbox';
+
+  var lbContent = document.createElement('div');
+  lbContent.className = 'jk-lightbox-content';
+
+  var lbImg = document.createElement('img');
+  lbImg.alt = '';
+
+  var lbCaption = document.createElement('div');
+  lbCaption.className = 'jk-lightbox-caption';
+
+  var lbClose = document.createElement('button');
+  lbClose.className = 'jk-lightbox-close';
+  lbClose.innerHTML = '&times;';
+
+  var lbPrev = document.createElement('div');
+  lbPrev.className = 'jk-lightbox-prev';
+  lbPrev.innerHTML = '&#8592;';
+
+  var lbNext = document.createElement('div');
+  lbNext.className = 'jk-lightbox-next';
+  lbNext.innerHTML = '&#8594;';
+
+  lbContent.appendChild(lbImg);
+  lbContent.appendChild(lbCaption);
+  lbContent.appendChild(lbPrev);
+  lbContent.appendChild(lbNext);
+  lb.appendChild(lbClose);
+  lb.appendChild(lbContent);
+  document.body.appendChild(lb);
+
+  var items = document.querySelectorAll('.gallery-container .gallery-item');
+  var currentIndex = 0;
+
+  function showImage(n) {
+    if (n >= items.length) n = 0;
+    if (n < 0) n = items.length - 1;
+    currentIndex = n;
+    lbImg.src = items[n].querySelector('img').src;
+    var label = items[n].querySelector('.gallery-label');
+    lbCaption.textContent = label ? label.textContent : '';
+  }
+
+  function openLightbox(n) {
+    lb.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    showImage(n);
+  }
+
+  function closeLightbox() {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  items.forEach(function(item, i) {
+    item.addEventListener('click', function() { openLightbox(i); });
+  });
+
+  lbPrev.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+  });
+
+  lbNext.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (lb.style.display !== 'block') return;
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
 </script>
 </body>
 </html>

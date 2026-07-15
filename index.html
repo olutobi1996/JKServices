@@ -1226,6 +1226,18 @@
   .services-row { grid-template-columns: 1fr; }
   .stat-number { font-size: 36px; }
 }
+
+.value-list{
+    display:flex;
+    flex-direction:column;
+    gap:32px;   /* try 20-24px */
+}
+
+.value-item{
+    display:flex;
+    align-items:flex-start;
+    gap:24px;
+}
 </style>
 </head>
 <body>
@@ -1246,10 +1258,10 @@
 
     <ul class="dropdown-menu">
       <li><a href="general-maintenance.html">General Maintenance</a></li>
-      <li><a href="plumbing-electrical.html">Plumbing & Electrical</a></li>
       <li><a href="gardening.html">Gardening</a></li>
       <li><a href="cleaning.html">Cleaning</a></li>
       <li><a href="refurbishments.html">Property Refurbishments</a></li>
+      <li><a href="plumbing-electrical.html">Plumbing & Electrical</a></li>
     </ul>
 
   </li>
@@ -1298,38 +1310,65 @@
     </div>
   </div>
   <div class="hero-visual">
-    <div class="hero-visual-grid">
-      <div class="hero-visual-grid-row">
-        <div class="hero-panel">
-          <div class="hero-panel-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 22V12h6v10"/></svg>
-          </div>
-          <div class="hero-panel-label">General Maintenance</div>
-          <div class="hero-panel-accent"></div>
+  <div class="hero-visual-grid">
+
+    <!-- Top Row -->
+    <div class="hero-visual-grid-row">
+
+      <div class="hero-panel">
+        <div class="hero-panel-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+            <path d="M9 22V12h6v10"/>
+          </svg>
         </div>
-        <div class="hero-panel">
-          <div class="hero-panel-icon">
-            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <div class="hero-panel-label">Plumbing & Electrical</div>
-          <div class="hero-panel-accent"></div>
-        </div>
+        <div class="hero-panel-label">General Maintenance</div>
+        <div class="hero-panel-accent"></div>
       </div>
-      <div class="hero-visual-grid-row">
-        <div class="hero-panel">
-          <div class="hero-panel-icon">
-            <svg viewBox="0 0 24 24"><circle cx="13" cy="6" r="3"/><path d="M4 17v-1a8 8 0 0110.42-7.63M4 21h16M8 21v-4"/><rect x="14" y="13" width="7" height="8" rx="1"/></svg>
-          </div>
-          <div class="hero-panel-label">Cleaning & refurbishments</div>
-          <div class="hero-panel-accent"></div>
+
+      <div class="hero-panel">
+        <div class="hero-panel-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="13" cy="6" r="3"/>
+            <path d="M4 17v-1a8 8 0 0110.42-7.63M4 21h16M8 21v-4"/>
+            <rect x="14" y="13" width="7" height="8" rx="1"/>
+          </svg>
         </div>
-        <div class="hero-panel">
-          <div class="hero-panel-icon">
-            <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V8l8-6 8 6v12"/><rect x="9" y="12" width="6" height="8"/><path d="M10 12V9a2 2 0 014 0v3"/></svg>
-          </div>
-          <div class="hero-panel-label">Gardening</div>
-          <div class="hero-panel-accent"></div>
+        <div class="hero-panel-label">Cleaning &amp; Refurbishments</div>
+        <div class="hero-panel-accent"></div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="hero-visual-grid-row">
+
+      <div class="hero-panel">
+        <div class="hero-panel-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 20h20M4 20V8l8-6 8 6v12"/>
+            <rect x="9" y="12" width="6" height="8"/>
+            <path d="M10 12V9a2 2 0 014 0v3"/>
+          </svg>
         </div>
+        <div class="hero-panel-label">Gardening</div>
+        <div class="hero-panel-accent"></div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="hero-panel-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <div class="hero-panel-label">Plumbing &amp; Electrical</div>
+        <div class="hero-panel-accent"></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
       </div>
     </div>
   </div>
@@ -1366,49 +1405,75 @@
 <!-- ABOUT -->
 <section class="section-intro" id="about">
   <div class="intro-left">
-    <div class="section-label">Who We Are</div>
-    <h2 class="section-title">Built on Trust,<br>Driven by Quality.</h2>
-    <p class="section-body">JK Property Services is a family-run property maintenance company with over a decade of hands-on experience. We believe every home deserves expert care — and every client deserves honest, transparent service.</p>
-    <p class="section-body">Whether you're a homeowner needing a quick fix or a landlord managing a portfolio of properties, we bring the same level of professionalism and care to every single job.</p>
-  </div>
+  <div class="section-label">Our Story</div>
+  <h2 class="section-title">The Story Behind<br>JK Property Services.</h2>
+
+  <p class="section-body">
+    Jake has been part of JK Property Services from the very beginning. Through hard work, dedication, and a genuine passion for delivering high standards, he has helped grow the business into a trusted name for property maintenance across Cambridge and the surrounding areas.
+  </p>
+
+  <p class="section-body">
+    Today, JK Property Services provides professional general maintenance, refurbishments, gardening, painting and decorating, cleaning, and plumbing &amp; electrical services. Every project is completed with care, attention to detail, and a commitment to quality workmanship.
+  </p>
+
+  <p class="section-body">
+    We believe great communication is just as important as great workmanship. From your first enquiry through to project completion, we aim to provide honest advice, reliable service, and a straightforward experience—whether it's a small repair or a larger property project.
+  </p>
+</div>
+
   <div class="intro-right">
     <ul class="value-list">
-      <li class="value-item">
-        <div class="value-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="value-text">
-          Transparent Pricing
-          <span>Fixed quotes before work begins — no surprise bills at the end.</span>
-        </div>
-      </li>
-      <li class="value-item">
-        <div class="value-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="value-text">
-          Skilled, Vetted Tradespeople
-          <span>Every team member is qualified, insured, and background-checked.</span>
-        </div>
-      </li>
-      <li class="value-item">
-        <div class="value-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="value-text">
-          On Time, Every Time
-          <span>We respect your schedule and always show up when we say we will.</span>
-        </div>
-      </li>
-      <li class="value-item">
-        <div class="value-check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="value-text">
-          12-Month Workmanship Guarantee
-          <span>If something isn't right, we come back and fix it — free of charge.</span>
-        </div>
-      </li>
+
+     <li class="value-item">
+  <div class="value-check">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="value-text">
+    Free, No-Obligation Quotes
+    <span>We provide free quotations for all work with no obligation to proceed. Simply get in touch with your requirements and we'll be happy to help.</span>
+  </div>
+</li>
+
+<li class="value-item">
+  <div class="value-check">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="value-text">
+    Qualified &amp; Insured
+    <span>Our experienced team is fully qualified and insured, ensuring every project is completed safely, professionally, and to a high standard.</span>
+  </div>
+</li>
+
+<li class="value-item">
+  <div class="value-check">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="value-text">
+    Cambridge &amp; Surrounding Areas
+    <span>We proudly provide property maintenance services throughout Cambridge and the surrounding areas. Contact us to confirm availability in your location.</span>
+  </div>
+</li>
+
+<li class="value-item">
+  <div class="value-check">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="value-text">
+    No Job Too Small
+    <span>From minor repairs and routine maintenance to full property refurbishments, we're happy to help with projects of every size.</span>
+  </div>
+</li>
+
+<li class="value-item">
+  <div class="value-check">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="value-text">
+    Reliable Communication
+    <span>From your first enquiry through to project completion, we keep you informed with clear updates, honest advice, and responsive customer service.</span>
+  </div>
+</li>
+
     </ul>
   </div>
 </section>
@@ -1422,62 +1487,95 @@
     </div>
     <div class="services-count">06</div>
   </div>
+
   <div class="services-grid">
 
+    <!-- 01 -->
     <div class="service-card">
       <div class="service-number">01</div>
       <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 22V12h6v10"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+          <path d="M9 22V12h6v10"/>
+        </svg>
       </div>
       <div class="service-title">General Property Maintenance</div>
-      <div class="service-desc">Ongoing upkeep, repairs, and preventative maintenance to keep your property in peak condition all year round.</div>
+      <div class="service-desc">
+        Ongoing repairs, preventative maintenance, and property upkeep to keep your home or commercial premises in excellent condition.
+      </div>
     </div>
 
+    <!-- 02 -->
     <div class="service-card">
       <div class="service-number">02</div>
       <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
       </div>
-      <div class="service-title">Plumbing & Electrical</div>
-      <div class="service-desc">Boiler servicing, leak repairs, bathroom installations, and full central heating system maintenance & electrical work.</div>
+      <div class="service-title">Property Refurbishments</div>
+      <div class="service-desc">
+        Complete property refurbishments including kitchens, bathrooms, flooring, plastering, decorating, and full interior improvements.
+      </div>
     </div>
 
+    <!-- 03 -->
     <div class="service-card">
       <div class="service-number">03</div>
       <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+        </svg>
       </div>
-      <div class="service-title">Electrical Works</div>
-      <div class="service-desc">Safe, certified electrical repairs, rewiring, consumer unit upgrades, and new socket or lighting installations.</div>
+      <div class="service-title">Gardening</div>
+      <div class="service-desc">
+        Garden maintenance, lawn care, hedge trimming, fencing, landscaping, and seasonal garden tidy-ups.
+      </div>
     </div>
 
+    <!-- 04 -->
     <div class="service-card">
-  <div class="service-number">03</div>
-  <div class="service-icon">
-    <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-  </div>
-  <div class="service-title">Property Refurbishments</div>
-  <div class="service-desc">Complete property transformations including kitchen and bathroom renovations, decorating, plastering, flooring, and full interior upgrades.</div>
-</div>
+      <div class="service-number">04</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 20l4-4M7 4l13 13M5 8l3-3 11 11-3 3"/>
+        </svg>
+      </div>
+      <div class="service-title">Painting &amp; Decorating</div>
+      <div class="service-desc">
+        Professional interior and exterior painting, decorating, wallpapering, touch-ups, and finishing services for homes and businesses.
+      </div>
+    </div>
 
-<div class="service-card">
-  <div class="service-number">04</div>
-  <div class="service-icon">
-    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-  </div>
-  <div class="service-title">Gardening</div>
-  <div class="service-desc">Professional garden maintenance, hedge trimming, fencing, lawn care, garden clearances, and landscaping services for homes and rental properties.</div>
-</div>
+    <!-- 05 -->
+    <div class="service-card">
+      <div class="service-number">05</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M2 20h20M4 20V8l8-6 8 6v12"/>
+          <rect x="9" y="12" width="6" height="8"/>
+        </svg>
+      </div>
+      <div class="service-title">Cleaning Services</div>
+      <div class="service-desc">
+        Domestic and commercial cleaning, deep cleans, end-of-tenancy cleaning, regular maintenance, and property preparation.
+      </div>
+    </div>
 
-<div class="service-card">
-  <div class="service-number">05</div>
-  <div class="service-icon">
-    <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V8l8-6 8 6v12"/><rect x="9" y="12" width="6" height="8"/></svg>
-  </div>
-  <div class="service-title">Cleaning Services</div>
-  <div class="service-desc">Reliable domestic and commercial cleaning services including deep cleans, end-of-tenancy cleans, regular maintenance, and property preparation.</div>
-</div>
-
+    <!-- 06 -->
+    <div class="service-card">
+      <div class="service-number">06</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+        </svg>
+      </div>
+      <div class="service-title">Plumbing &amp; Electrical</div>
+      <div class="service-desc">
+        Professional plumbing and electrical services including repairs, installations, maintenance, fault finding, and emergency call-outs.
+      </div>
+    </div>
 
   </div>
 </section>
@@ -1530,8 +1628,10 @@
     <div class="section-label">Client Reviews</div>
     <h2 class="section-title">What Our Customers Say</h2>
   </div>
+
   <div class="testimonials-grid">
 
+    <!-- Review 1 -->
     <div class="testimonial-card">
       <div class="testimonial-stars">
         <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -1540,16 +1640,21 @@
         <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </div>
-      <div class="testimonial-quote">"Absolutely fantastic from start to finish. The team were professional, tidy, and the quality of work was outstanding. Our bathroom looks incredible — couldn't be happier."</div>
+
+      <div class="testimonial-quote">
+        "I recently used JK Property Services to take care of several maintenance tasks at my home and was very impressed. From start to finish, they were professional, reliable, and truly went above and beyond. They handled everything I needed including cleaning, gardening and minor repairs, and every job was completed to a high standard. Communication was excellent throughout, and they left everything looking fantastic. I highly recommend JK Property Services."
+      </div>
+
       <div class="testimonial-author">
-        <div class="author-avatar">SR</div>
+        <div class="author-avatar">EC</div>
         <div>
-          <div class="author-name">Sarah R.</div>
-          <div class="author-location">Homeowner, Nottingham</div>
+          <div class="author-name">Eco</div>
+          <div class="author-location">Homeowner</div>
         </div>
       </div>
     </div>
 
+    <!-- Review 2 -->
     <div class="testimonial-card">
       <div class="testimonial-stars">
         <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -1558,30 +1663,39 @@
         <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </div>
-      <div class="testimonial-quote">"As a landlord with multiple properties, I need tradespeople I can actually trust. JK Property Services are now my go-to for everything. Reliable, honest pricing and great work every time."</div>
+
+      <div class="testimonial-quote">
+        "I used JK Property Services to help me with tearing down and renovating a property I bought for lease. This company is the real deal. Their efficiency and expertise made the entire process smooth from start to finish. I would use them again in a heartbeat!"
+      </div>
+
+      <div class="testimonial-author">
+        <div class="author-avatar">AR</div>
+        <div>
+          <div class="author-name">Arike</div>
+          <div class="author-location">Property Owner</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+
+      <div class="testimonial-quote">
+        "Great service! Highly recommend."
+      </div>
+
       <div class="testimonial-author">
         <div class="author-avatar">MT</div>
         <div>
-          <div class="author-name">Mark T.</div>
-          <div class="author-location">Landlord, Derby</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-stars">
-        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      </div>
-      <div class="testimonial-quote">"Called JK on a Friday morning about a leak, they were there by the afternoon. Fixed the problem cleanly and at a very fair price. You don't find service like that often. Highly recommend."</div>
-      <div class="testimonial-author">
-        <div class="author-avatar">JP</div>
-        <div>
-          <div class="author-name">James P.</div>
-          <div class="author-location">Homeowner, Leicester</div>
+          <div class="author-name">Matt</div>
+          <div class="author-location">Homeowner</div>
         </div>
       </div>
     </div>
@@ -1592,40 +1706,56 @@
 <!-- WHY JK -->
 <section class="why">
   <div class="why-left">
-    <div class="section-label">Why Choose Us</div>
-    <h2 class="section-title">The Standard You Deserve.</h2>
-    <p class="section-body">We don't cut corners. We don't disappear mid-job. We treat your home with the same respect we'd give our own. That's the JK promise — backed by every review, every referral, and every job we've completed.</p>
-    <a href="contact.html" class="btn-primary" style="margin-top:32px; display:inline-block;">Book a Free Survey</a>
+    <div class="section-label">Frequently Asked Questions</div>
+    <h2 class="section-title">Helpful Information Before You Book.</h2>
+    <p class="section-body">
+      We believe in providing clear, honest information before any work begins. Here are some of the questions we're most commonly asked about our services across Cambridge and the surrounding areas.
+    </p>
+    <a href="contact.html" class="btn-primary" style="margin-top:32px; display:inline-block;">Request a Free Quote</a>
   </div>
+
   <div class="why-features">
+
+    <div class="why-feature">
+      <div class="why-feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+      </div>
+      <div class="why-feature-title">What Areas Do You Cover?</div>
+      <div class="why-feature-text">
+        We proudly provide property maintenance services throughout Cambridge and the surrounding areas. Contact us with your postcode and we'll be happy to confirm availability.
+      </div>
+    </div>
+
     <div class="why-feature">
       <div class="why-feature-icon">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
-      <div class="why-feature-title">Fully Insured</div>
-      <div class="why-feature-text">Public liability and employer's insurance as standard on every single job.</div>
+      <div class="why-feature-title">Qualified &amp; Insured</div>
+      <div class="why-feature-text">
+        Yes. Our team is fully qualified, insured and experienced, giving you complete confidence that every project is completed safely and to a high standard.
+      </div>
     </div>
+
     <div class="why-feature">
       <div class="why-feature-icon">
-        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M5 12h14"/></svg>
       </div>
-      <div class="why-feature-title">Guaranteed Work</div>
-      <div class="why-feature-text">12-month guarantee on all workmanship — no arguments, no excuses.</div>
+      <div class="why-feature-title">Free Quotes</div>
+      <div class="why-feature-text">
+        We provide free, no-obligation quotations for all work. Simply get in touch with the details of your project and we'll respond as soon as possible.
+      </div>
     </div>
+
     <div class="why-feature">
       <div class="why-feature-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
       </div>
-      <div class="why-feature-title">Prompt Response</div>
-      <div class="why-feature-text">We respond to all enquiries within 2 hours during working hours.</div>
-    </div>
-    <div class="why-feature">
-      <div class="why-feature-icon">
-        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <div class="why-feature-title">No Job Too Small</div>
+      <div class="why-feature-text">
+        From minor repairs and regular maintenance to full refurbishments and larger property projects, we're happy to help with jobs of every size.
       </div>
-      <div class="why-feature-title">Fair, Fixed Pricing</div>
-      <div class="why-feature-text">The price we quote is the price you pay. Always.</div>
     </div>
+
   </div>
 </section>
 
@@ -1649,17 +1779,17 @@
     <div class="footer-logo-circle">JK</div>
     <div class="footer-logo-name">JK Property Services</div>
   </div>
-  <p>Professional property maintenance, refurbishments, plumbing, gardening, and cleaning services you can rely on. Proudly serving homeowners and landlords across the East Midlands.</p>
+   <p>Professional property maintenance, refurbishments, gardening, plumbing & Electrical and cleaning services you can rely on. Proudly serving homeowners and landlords across the Cambridge, Cambridgeshire.</p>
 </div>
 
 <div class="footer-col">
   <h4>Services</h4>
   <ul>
     <li><a href="general-maintenance.html">General Maintenance</a></li>
-    <li><a href="plumbing-electrical.html">Plumbing & Electrical</a></li>
     <li><a href="gardening.html">Gardening & Landscaping</a></li>
     <li><a href="refurbishments.html">Property Refurbishments</a></li>
     <li><a href="cleaning.html">Cleaning Services</a></li>
+    <li><a href="plumbing-electrical.html">Plumbing & Electrical</a></li>
   </ul>
 </div>
 
